@@ -12,7 +12,14 @@
             JonL21's Sandbox
         </div>
         <div class="container">
-            <a type="button" class="btn btn-primary" href="/javascript/js_home.html">JavaScript</a>
+            <script src="AgeToSec.js"></script>
+            <form>
+                <input type="text" id="age" required minlength="1" maxlength="3">
+                <button type="button" class="btn btn-primary" action="AgeToSec(age.value)">Calculate</button>
+            </form>
+            <div id="output">
+
+            </div>
         </div>
     </body>
 </html>
