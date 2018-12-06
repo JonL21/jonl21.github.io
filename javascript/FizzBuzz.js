@@ -6,13 +6,14 @@ function FizzBuzz() {
     let output = ""
     for (let i = 1; i <= range; i++) {
         if (i % fizz == 0 && i % buzz == 0)
-            output += "Fizz Buzz, ";
+            output += "Fizz Buzz, \n";
         else if (i % buzz == 0)
-            output += "Buzz, ";
+            output += "Buzz, \n";
         else if (i % fizz == 0)
-            output += "Fizz, ";
+            output += "Fizz, \n";
         else
-            output += i + ", ";
+            output += i + ", \n";
     }
+    output = output.substring(0, output.length - 3)
     document.getElementById('out_2').innerHTML = output
 }

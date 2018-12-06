@@ -21,6 +21,7 @@
     	$(document).ready(function() {
     	$.getScript("AgeToSec.js", function() {console.log('loaded AgeToSec script!')})
     	$.getScript("FizzBuzz.js", function() {console.log('loaded FizzBuzz script!')})
+    	$.getScript("RockPaperScissors.js", function() {console.log('loaded RockPaperScissors script!')})
     })
     </script>
 
@@ -42,8 +43,7 @@
 					<input type="text" id="age" required placeholder="Enter your age (in years!)" minlength="1" maxlength="3">
 					<button type="button" class="btn btn-primary" onclick="AgeToSec()">Calculate!</button>
 				</form>
-				<div id="out_1">
-				</div>
+				<div id="out_1"></div>	
 			</div>
 			<div class="col-sm border box">
 				<h4>FizzBuzz</h4>
@@ -55,6 +55,18 @@
 					<button type="button" class="btn btn-primary" onclick="FizzBuzz()">Calculate!</button>
 				</form>
 				<textarea id="out_2" disabled cols="50"></textarea>
+			</div>
+		</div>
+		<div class="row align-items-start justify-content-around">
+			<div class="col-sm border box">
+				<h4>Rock Paper Scissors</h4>
+				<form>
+					Choose a weapon:
+					<button type="button" class="btn btn-primary" onclick="RPS('rock')">Rock</button>
+					<button type="button" class="btn btn-primary" onclick="RPS('paper')">Paper</button>
+					<button type="button" class="btn btn-primary" onclick="RPS('scissors')">Scissors</button>
+				</form>
+				<div id="out_3" />
 			</div>
 		</div>
 	</div>
