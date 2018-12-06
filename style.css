@@ -1,3 +1,7 @@
 .noto {
     font-family: 'Noto Sans', sans-serif;
 }
+
+.box {
+    min-height: 200px;
+}
