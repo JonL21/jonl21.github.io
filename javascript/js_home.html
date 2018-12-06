@@ -10,19 +10,27 @@
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+
+    <link href="../style.css" rel="stylesheet">
+
     <title>JonL21's Sandbox</title>
 
     <script type="text/javascript" src="AgeToSec.js"></script>
 </head>
 
 <body>
-    <div class="jumbotron">
-        JonL21's Sandbox
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-1 noto">JonL21's Sandbox</h1>
+        </div>
     </div>
     <div class="container">
         <h4>Age to Seconds Calculator</h4>
         <form>
-            <input type="text" id="age" required placeholder="Enter your age (in years!)"minlength="1" maxlength="3">
+            <input type="text" id="age" required placeholder="Enter your age (in years!)" minlength="1" maxlength="3">
             <button type="button" class="btn btn-primary" onclick="AgeToSec()">Calculate</button>
         </form>
 
