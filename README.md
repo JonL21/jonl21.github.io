@@ -1,3 +1,3 @@
 # jonl21.github.io
 
-A sandbox for any program in any language.
+Programming challenges in JavaScript.

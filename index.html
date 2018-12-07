@@ -7,22 +7,87 @@
     <!-- Bootstrap -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
-
-    <link href="style.css" rel="stylesheet">
+    <!-- Stylesheet -->
+    <link href="../style.css" rel="stylesheet">
+    <script>
+        // Scripts
+    	$(document).ready(function() {
+            $.getScript("javascript/AgeToSec.js", function() {console.log('loaded AgeToSec script!')})
+            $.getScript("javascript/FizzBuzz.js", function() {console.log('loaded FizzBuzz script!')})
+            $.getScript("javascript/RockPaperScissors.js", function() {console.log('loaded RockPaperScissors script!')})
+        })
+        
+    </script>
     <title>JonL21's Sandbox</title>
 </head>
 
 <body>
-    <div class="jumbotron jumbotron-fluid">
+    <header class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h1 class="display-2 noto">JonL21's Sandbox</h1>
+            <h1 class="display-4 noto">JonL21's Sandbox</h1>
+            <summary>A bunch of programming challenges in JavaScript.</summary>
         </div>
-    </div>
+    </header>
     <div class="container">
-        <a type="button" class="btn btn-primary" href="javascript/js_home.html">JavaScript</a>
+        <h4>Age to Seconds Calculator</h4>
+        <form>
+            <div class="form-group">
+                <label for="age">Enter you Age:</label>
+                <input type="text" class="form-control" id="age" aria-describedby="Age" placeholder="Your age (in years!)"
+                    required minlength="1" maxlength="3">
+            </div>
+            <button type="button" class="btn btn-primary" onclick="AgeToSec()">Calculate!</button>
+        </form>
+        <div id="out_1"></div>
+
+        <hr>
+
+        <h4>FizzBuzz</h4>
+        <div class="row">
+            <form class="col-sm-3">
+                <div class="form-group">
+                    <label for="fizz">Fizz Value:</label>
+                    <input type="text" class="form-control" id="fizz" aria-describedby="Fizz Value" placeholder="Numbers divisible by x"
+                        required minlength="1" maxlength="2" value="3">
+                </div>
+                <div class="form-group">
+                    <label for="buzz">Fizz Value:</label>
+                    <input type="text" class="form-control" id="buzz" aria-describedby="Buzz Value" placeholder="Numbers divisible by y"
+                        required minlength="1" maxlength="2" value="5">
+                </div>
+                <div class="form-group">
+                    <label for="range">Upper Range Limit:</label>
+                    <input type="text" class="form-control" id="range" aria-describedby="Upper Limit" placeholder="Upper Limit"
+                        required minlength="1" maxlength="100000" value="100">
+                </div>
+                <button type="button" class="btn btn-primary" onclick="FizzBuzz()">Calculate!</button>
+            </form>
+            <div class="col-sm-9 mx-auto">
+                <h6 id="out_2_hd"></h6>
+                <textarea class="textarea" style="display: none;" id="out_2" disabled cols="53"></textarea>
+            </div>
+        </div>
+
+        <hr>
+
+        <h4>Rock Paper Scissors</h4>
+        <form class="form-inline">
+            <p class="mr-2">Choose a weapon: </p>
+            <div class="btn-toolbar">
+                <div class="btn-group mr-2"><button type="button" class="btn btn-primary" onclick="RPS('rock')">Rock</button></div>
+                <div class="btn-group mr-2"><button type="button" class="btn btn-primary" onclick="RPS('paper')">Paper</button></div>
+                <div class="btn-group mr-2"><button type="button" class="btn btn-primary" onclick="RPS('scissors')">Scissors</button></div>
+            </div>
+        </form>
+        <div id="out_3"></div>
+
     </div>
+
 </body>
 
 </html>
