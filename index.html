@@ -4,12 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
-    <!-- Bootstrap -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-        crossorigin="anonymous">
     <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <!-- Bootstrap -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
     <!-- Stylesheet -->
@@ -20,8 +19,8 @@
             $.getScript("javascript/AgeToSec.js", function() {console.log('loaded AgeToSec script!')})
             $.getScript("javascript/FizzBuzz.js", function() {console.log('loaded FizzBuzz script!')})
             $.getScript("javascript/RockPaperScissors.js", function() {console.log('loaded RockPaperScissors script!')})
+            $.getScript("javascript/PingPong.js", function() {console.log('loaded PingPong script!')})
         })
-        
     </script>
     <title>JonL21's Sandbox</title>
 </head>
@@ -33,61 +32,100 @@
             <summary>A bunch of programming challenges in JavaScript.</summary>
         </div>
     </header>
-    <div class="container">
-        <h4>Age to Seconds Calculator</h4>
-        <form>
-            <div class="form-group">
-                <label for="age">Enter you Age:</label>
-                <input type="text" class="form-control" id="age" aria-describedby="Age" placeholder="Your age (in years!)"
-                    required minlength="1" maxlength="3">
+
+    <div class="accordion container" id="challenges">
+        <div class="card">
+            <div class="card-header simple" id="SimpleH">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#Simple" aria-expanded="false" aria-controls="Simple">
+                    <h1 class="noto mb-0">Simple Challenges</h1>
+                </button>
             </div>
-            <button type="button" class="btn btn-primary" onclick="AgeToSec()">Calculate!</button>
-        </form>
-        <div id="out_1"></div>
-
-        <hr>
-
-        <h4>FizzBuzz</h4>
-        <div class="row">
-            <form class="col-sm-3">
-                <div class="form-group">
-                    <label for="fizz">Fizz Value:</label>
-                    <input type="text" class="form-control" id="fizz" aria-describedby="Fizz Value" placeholder="Numbers divisible by x"
-                        required minlength="1" maxlength="2" value="3">
+        
+            <div id="Simple" class="collapse" aria-labelledby="SimpleH" data-parent="#challenges">
+                <div class="card-body">
+                    <h4>Age to Seconds Calculator</h4>
+                    <form>
+                        <div class="form-group">
+                            <label for="age">Enter you Age:</label>
+                            <input type="text" class="form-control" id="age" aria-describedby="Age" placeholder="Your age (in years!)"
+                                required minlength="1" maxlength="3">
+                        </div>
+                        <button type="button" class="btn btn-primary" onclick="AgeToSec()">Calculate!</button>
+                    </form>
+                    <div id="out_1"></div>
+        
+                    <hr>
+        
+                    <h4>FizzBuzz</h4>
+                    <div class="row">
+                        <form class="col-sm-3">
+                            <div class="form-group">
+                                <label for="fizz">Fizz Value:</label>
+                                <input type="text" class="form-control" id="fizz" aria-describedby="Fizz Value" placeholder="Numbers divisible by x"
+                                    required minlength="1" maxlength="2" value="3">
+                            </div>
+                            <div class="form-group">
+                                <label for="buzz">Buzz Value:</label>
+                                <input type="text" class="form-control" id="buzz" aria-describedby="Buzz Value" placeholder="Numbers divisible by y"
+                                    required minlength="1" maxlength="2" value="5">
+                            </div>
+                            <div class="form-group">
+                                <label for="range">Upper Range Limit:</label>
+                                <input type="text" class="form-control" id="range" aria-describedby="Upper Limit" placeholder="Upper Limit"
+                                    required minlength="1" maxlength="100000" value="100">
+                            </div>
+                            <button type="button" class="btn btn-primary" onclick="FizzBuzz()">Calculate!</button>
+                        </form>
+                        <div class="col-sm-9 mx-auto">
+                            <h6 id="out_2_hd"></h6>
+                            <textarea class="textarea" style="display: none;" id="out_2" disabled cols="53"></textarea>
+                        </div>
+                    </div>
+        
+                    <hr>
+        
+                    <h4>Rock Paper Scissors</h4>
+                    <form class="form-inline">
+                        <p class="mr-2">Choose a weapon: </p>
+                        <div class="btn-toolbar">
+                            <div class="btn-group mr-2"><button type="button" class="btn btn-primary" onclick="RPS('rock')">Rock</button></div>
+                            <div class="btn-group mr-2"><button type="button" class="btn btn-primary" onclick="RPS('paper')">Paper</button></div>
+                            <div class="btn-group mr-2"><button type="button" class="btn btn-primary" onclick="RPS('scissors')">Scissors</button></div>
+                        </div>
+                    </form>
+                    <div id="out_3"></div>
                 </div>
-                <div class="form-group">
-                    <label for="buzz">Fizz Value:</label>
-                    <input type="text" class="form-control" id="buzz" aria-describedby="Buzz Value" placeholder="Numbers divisible by y"
-                        required minlength="1" maxlength="2" value="5">
-                </div>
-                <div class="form-group">
-                    <label for="range">Upper Range Limit:</label>
-                    <input type="text" class="form-control" id="range" aria-describedby="Upper Limit" placeholder="Upper Limit"
-                        required minlength="1" maxlength="100000" value="100">
-                </div>
-                <button type="button" class="btn btn-primary" onclick="FizzBuzz()">Calculate!</button>
-            </form>
-            <div class="col-sm-9 mx-auto">
-                <h6 id="out_2_hd"></h6>
-                <textarea class="textarea" style="display: none;" id="out_2" disabled cols="53"></textarea>
             </div>
         </div>
-
-        <hr>
-
-        <h4>Rock Paper Scissors</h4>
-        <form class="form-inline">
-            <p class="mr-2">Choose a weapon: </p>
-            <div class="btn-toolbar">
-                <div class="btn-group mr-2"><button type="button" class="btn btn-primary" onclick="RPS('rock')">Rock</button></div>
-                <div class="btn-group mr-2"><button type="button" class="btn btn-primary" onclick="RPS('paper')">Paper</button></div>
-                <div class="btn-group mr-2"><button type="button" class="btn btn-primary" onclick="RPS('scissors')">Scissors</button></div>
+        <div class="card">
+            <div class="card-header intermediate" id="IntermediateH">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#Intermediate" aria-expanded="false" aria-controls="Intermediate">
+                    <h1 class="noto mb-0">Intermediate Challenges</h1>
+                </button>
             </div>
-        </form>
-        <div id="out_3"></div>
-
+        
+            <div id="Intermediate" class="collapse" aria-labelledby="IntermediateH" data-parent="#challenges">
+                <div class="card-body">        
+                    <h4>Ping Pong</h4>
+                    <canvas id="gameCanvas" width="800" height="600"></canvas>
+                    <script src="javascript/PingPong.js"></script>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header advanced" id="AdvancedH">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#Advanced" aria-expanded="false" aria-controls="Advanced">
+                    <h1 class="noto mb-0">Advanced Challenges</h1>
+                </button>
+            </div>
+        
+            <div id="Advanced" class="collapse" aria-labelledby="AdvancedH" data-parent="#challenges">
+                <div class="card-body">        
+                    <h4>Coming Soon!</h4>
+                </div>
+            </div>
+        </div>
     </div>
-
 </body>
 
 </html>

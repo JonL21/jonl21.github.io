@@ -2,6 +2,30 @@
     font-family: 'Noto Sans', sans-serif;
 }
 
+.jumbotron {
+    background: #f54257;
+    color: white;
+}
+
+.card-header {
+    background: #49484b;
+}
+
+.card-header > button {
+    color: white;
+    text-decoration: none;
+}
+
+.card-header > button:enabled {
+    color: white;
+    text-decoration: none;
+}
+
+.card-header > button:hover {
+    color: white;
+    text-decoration: none;
+}
+
 .textarea {
     width: 100%;
     height: 60%;
